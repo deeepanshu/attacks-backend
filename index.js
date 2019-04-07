@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const sanitizer = require('./src/utils/sanitizer');
 const listApi = require('./src/api/list');
 const loginApi = require('./src/api/login');
+const devilApi = require('./src/api/devil');
 const con = require('./src/service/db');
 const ServiceResponse = require('./src/model/ServiceResponse');
 
@@ -34,7 +35,7 @@ app.use((req, res, next) => {
 
 app.use(loginApi);
 app.use(listApi);
-
+app.use(devilApi);
 
 
 // -------------SEEDS DB-----------------
@@ -54,12 +55,6 @@ app.get("/seed", (req, res) => {
     );
   });
 });
-
-
-// ---------Cookie Parser---------------
-app.get('/cookies', (req, res) => {
-  res.json({c:req.cookies, h: req.headers.cookie});
-})
 
 // ---------Input Sanitizer--------------
 app.post('/san', async (req, res) => {

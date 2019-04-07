@@ -5,11 +5,11 @@ const sanitizer = async (params) => {
     // console.log(params,keys);
     let sanitizedBody = {};
     await keys.map(ele => {
-      return sanitizedBody[ele] = params[ele].replace(tester, " ").toLowerCase();
+      return sanitizedBody[ele] = params[ele].replace(tester, " ");
     });
     
     return sanitizedBody;
 }
 
 
-module.exports.sanitizer = sanitizer;
+module.exports = sanitizer;

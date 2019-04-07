@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sanitizer = require('./../../utils/sanitizer');
 const con = require('./../../service/db');
 const ServiceResponse = require('./../../model/ServiceResponse');
+console.log(sanitizer);
 // -----------Routes--------------
 router.post("/list", async (req, res) => {
     const { item, description } = await sanitizer(req.body);

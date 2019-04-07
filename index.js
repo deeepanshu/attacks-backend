@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-// const mysql = require("mysql");
 const cookieParser = require("cookie-parser");
 const sanitizer = require('./src/utils/sanitizer');
 const listApi = require('./src/api/list');

@@ -8,24 +8,12 @@ const listApi = require('./src/api/list');
 const loginApi = require('./src/api/login');
 const con = require('./src/service/db');
 const ServiceResponse = require('./src/model/ServiceResponse');
-// var con = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "",
-//   database: "attacks",
-//   multipleStatements: true
-// });
 
-// con.connect(err => {
-//   if (err) throw err;
-//   console.log("Connected!!");
-// });
 
 // ----------Middlewares--------------
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-// app.use(express.cookieParser())
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -44,7 +32,7 @@ app.use((req, res, next) => {
   console.log(`\n ${req.method} ${req.path} \n`);
   next();
 });
-// console.log(loginApi, listApi);
+
 app.use(loginApi);
 app.use(listApi);
 

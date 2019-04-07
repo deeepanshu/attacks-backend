@@ -8,12 +8,11 @@ const ServiceResponse = require('./../../model/ServiceResponse');
 // '; DROP TABLE login; --
 router.post("/login", (req, res) => {
     try {
-      //   connect();
-      console.log(con)
       const { username, password } = req.body;
   
       let sql = `select  * from login where username='${username}' and password='${password}'`;
-      console.log(sql);
+      res.cookie("user", username);
+
       con.query(sql, function(err, result, fields) {
         if (err) throw err;
   
